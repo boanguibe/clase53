@@ -1,7 +1,9 @@
+const { profile } = require('console');
 const archivo = require('fs');
 const path = "./files/planos.txt";
 const path2 = "./files/planos2.txt";
 const path3 = "./files/planos3.txt";
+const prompt = require('prompt-sync')();// para solicitar datos por consola
 
 //Escritura de un archivo
 archivo.writeFileSync(path, "Hola mundo");
@@ -31,5 +33,7 @@ archivo.unlinkSync(path);
 // Agregar datos capturados desde la consola.
 let nombre = process.argv[2];
 let apellido =  process.argv[3];
+let edad = prompt("indique su edad");
 
-archivo.appendFileSync(path3, `Tu nombre es:${nombre} y tu apellido es: ${apellido}`);
+archivo.appendFileSync(path3, `Tu nombre es:${nombre} y tu apellido es: ${apellido}
+y tu edad es, edad: ${edad}\n`);
